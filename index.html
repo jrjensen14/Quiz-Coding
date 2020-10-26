@@ -10,11 +10,21 @@
 
 <body>
     <p id="countdown"></p>
-    <div class="container">
-        <h1 class="welcome">Coding Quiz Challenge</h1>
-        <p id="main">Try to answer the following code-related questions with in the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds.</p>
-        <button id="start">Start Quiz</button>
-        
-    </div>
+    <p id="score">0</p>
+    <main class="container" id="container">
+        <div class="welcome-page" id="welcome-page">
+            <h1 class="welcome">Coding Quiz Challenge</h1>
+            <p id="main">Try to answer the following code-related questions with in the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds.</p>
+            <button class="btn" id="start-quiz">Start Quiz</button>   
+        </div>
+
+        <div class="question-list" id="question-list">
+            <ul class="questions" id="question">
+                <li class="answers" id="answers"></li>
+            </ul>
+        </div>
+
+    </main>
+
     <script src="./js/script.js"></script>
 </body>
