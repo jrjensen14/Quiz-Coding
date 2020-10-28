@@ -37,12 +37,13 @@ var timerEl = document.querySelector("#timer");
 var startBtnEl = document.getElementById('start-quiz');
 var quizContainerEl = document.querySelector("#quiz-container");
 var containerEl = document.getElementById("container");
-var timeLimit = 10;
+var questionsDivEl = document.getElementById("question-list-title");
+var timeLimit = 60;
 timerEl.textContent = timeLimit;
 var timer;
-var time = 0;
+//var time = 0;
 var score = 0;
-var questionIndex = -1;
+var questionIndex = 0;
 var answerChoice;
 var buttonIdEl;
 var penalty = 10;
@@ -71,30 +72,73 @@ function startQuestions() {
     containerEl.innerHTML = "";
     questionIndex++;
 
-    if (questionIndex > questions.length - 1) {
-        // endGame();
-        // return;
-    }
-    
+    // if (questionIndex > questions.length - 1) {
+    //     // endGame();
+    //     // return;
+    // }
+    var quizQuestionList = questions[questionIndex].questionTitle;
+    containerEl.textContent = quizQuestionList;
 
     for (var i = 0; i < questions[questionIndex].answerChoice.length; ++i) {
         var createButtons = document.createElement("button");
-        createButtons.className = "btn choice-button";
+        createButtons.className = "btn-choice-button";
         createButtons.setAttribute("button-id", buttonIdEl);
         createButtons.setAttribute("value", questions[questionIndex].answerChoice[i]);
         createButtons.textContent = questions[questionIndex].answerChoice[i];
         containerEl.appendChild(createButtons);
         buttonIdEl++;
-
-    var quizContent = questions[questionIndex].questionTitle
-    quizContent.textContent = questions[questionIndex].questionTitle;
-    document.querySelector(".question-container");
-        // var quizMaterial = document.createElement("h3");
-        // quizMaterial.textContent = quizContent[i];
-        // containerEl.appendChild(quizMaterial);
-        // console.log("test", quizContent[i]);
     }
+    buttonHandler();
+}
 
+var buttonHandler = function(event) {
+    //console.log(event.target);
+    //var targetEl = event.target.value;
+        
+    if (event.target.matches(".btn-choice-button")) {
+        var targetId = event.target.value;
+        console.log(event.target.value, "value");
+
+        if (targetId === questions[questionIndex].correctAnswer) {
+            var correctAnswerAlert = document.createElement("h4");
+            correctAnswerAlert.className = "alert";
+            correctAnswerAlert.textContent = "Correct Answer!";
+            containerEl.appendChild(correctAnswerAlert);
+            questionIndex++;
+            startQuiz();
+        } else {
+            var incorrectAlert = document.createElement("h4");
+            incorrectAlert.className = "alert";
+            incorrectAlert.textContent = "Incorrect Answer";
+            containerEl.appendChild(incorrectAlert);
+            questionIndex++;
+            startQuiz();
+        }
+        // createDiv.setAttribute("taskId", "createDiv");
+
+        // if (targetEl.textContent == questions[questionIndex].correctAnswer) {
+        //     score++;
+        //     createDiv.textContent = "Correct! the answer is" + questions[questionIndex].correctAnswer;
+
+        // } else {
+        //     timeLimit = timeLimit - penalty;
+        //     createDiv.textContent = "Wrong! The correct answer is:" + questions[questionIndex].correctAnswer;
+        // }
+
+
+//         //taskId = targetEl.getAtt
+    }
+    
+};
+
+startBtnEl.addEventListener('click', startQuiz, startQuestions);
+containerEl.addEventListener('click', buttonHandler);   
+
+
+
+
+
+   // document.getElementById("question-list-title").innerHTML = quizContent;
     // for (var i = 0; i < questions[questionIndex].answerChoice.length; i++) {
     //     var buttonCode = "<buttion onclick=\"[ANS]\">[CHOICE]</BUTTON>";
     //     buttonCode = buttonCode.replace("[CHOICE]", questions[questionIndex].answerChoice[i]);
@@ -106,7 +150,7 @@ function startQuestions() {
     //     quizContent += buttonCode;
     // }
     // document.getElementById("quizContainer").innerHTML = quizContent;
-}
+
 
 // function endGame() {
 //     clearInterval(timer);
@@ -116,8 +160,7 @@ function startQuestions() {
 // }
 
 
-startBtnEl.addEventListener('click', startQuiz, startQuestions);
-         
+    
 
 // quizQuestion(questionIndex);
 //      });function startQuiz() {
@@ -203,3 +246,16 @@ startBtnEl.addEventListener('click', startQuiz, startQuestions);
 //     })
 
 // startBtnEl.addEventListener("click", startQuestions);
+
+
+     // var quizMaterial = document.createElement("h3");
+        // quizMaterial.textContent = quizContent[i];
+        // containerEl.appendChild(quizMaterial);
+        // console.log("test", quizContent[i]);
+
+
+    //var quizContent = "<h2>" + questions[currentQuestion].title + "</h2>"
+    // var quizContent = questions[questionIndex].questionTitle;
+   // var quizContent = document.querySelector(".question-list");
+    // //questions[questionIndex].questionTitle
+   // quizContent.textContent = questions[questionIndex].questionTitle;

@@ -9,7 +9,7 @@
 header {
     display: block;
     display: inline-block;
-    margin: 10px;
+    margin: 10px,10px,10px,10px;
     border: 1px solid black;
     width: 98vw;
 }
@@ -23,7 +23,7 @@ header {
     display: block;
     display: inline-block;
     border: black 1px solid;
-    margin: 10px;
+    margin: 10px,10px,10px,10px;
 }
 
 .h3 {
