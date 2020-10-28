@@ -1,3 +1,32 @@
-.welcome-page {
-    display: inline;
+
+
+#timer {
+    float: left;
 }
+#score {
+    float: right;
+}
+header {
+    display: block;
+    display: inline-block;
+    margin: 10px;
+    border: 1px solid black;
+    width: 98vw;
+}
+.quiz-container {
+    display: inline;
+    border: black, 1px;
+}
+#container {
+    text-align: center;
+    width: 98vw;
+    display: block;
+    display: inline-block;
+    border: black 1px solid;
+    margin: 10px;
+}
+
+.h3 {
+    
+}
+
