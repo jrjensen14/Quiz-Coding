@@ -10,3 +10,7 @@
 * If a question is answered incorrectly 10seconds is subtracted from the time
 * Game is over when time runs out or all questions have been answered
 * Once the game is over the player can save their initials and score
+
+## Good Luck! 
+
+❤️ Jessica 
