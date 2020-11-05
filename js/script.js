@@ -110,6 +110,7 @@ var buttonHandler = function(event) {
             correctAnswerAlert.className = "alert";
             correctAnswerAlert.textContent = "Correct Answer!";
             alertContainer.appendChild(correctAnswerAlert);
+            score = +10
             questionIndex++;
             correctAnswer++;
             correctScore.textContent = correctAnswer;
@@ -136,16 +137,28 @@ var endGame = function() {
     } else {
         render(questionIndex);
     }
+    var createP = document.createElement("p");
+    createP.setAttribute("id", "createP");
+    containerEl.appendChild(createP);
 
+    if (timeLimit >= 0) {
+        var timeRemaining = timeLimit;
+        var createP = document.createElement("p");
+        clearInterval(timer);
+        createP.textContent = "Your final score is: " + timeRemaining;
+        containerEl.appendChild(createP);
+    }
 
+    var createDivHighscore = document.createElement("div");
+    createDivHighscore.setAttribute("id", "createDivHighscore");
+    containerEl.appendChild(createDivHighscore);
 
-
-
-    // var endGameAlert = document.createAttribute("h4");
-    //     endGameAlert.className = "end-alert";
-    //     endGameAlert.textContent = "Game Over!";
-    //     containerEl.appendChild(endGameAlert);
+    var setScore = function() {
+        localStorage.setItem("highscore", timeRemaining);
+        console.log("highscore saved");
+    }
 };
+
 
         // createDiv.setAttribute("taskId", "createDiv");
 
