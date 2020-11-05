@@ -42,7 +42,7 @@ var alertContainer = document.getElementById("alert-container");
 var correctScore = document.getElementById("correctScore");
 var timeLimit = 60;
 timerEl.textContent = timeLimit;
-var timer;
+var timer = 0
 //var time = 0;
 var score = 0;
 var questionIndex = 0;
@@ -63,6 +63,7 @@ function startQuiz() {
         timeLimit--;
     } else {
         clearInterval(timer);
+        endGame();
         timerEl.textContent = "Time's Up!";
     }  
     },1000);  
@@ -74,7 +75,7 @@ function startQuestions() {
     containerEl.innerHTML = "";
     // alertContainer.innerHTML = "";
 
-    if (questionIndex > questions.length - 1) {
+    if (questionIndex >= questions.length) {
         endGame();
         return;
     }
@@ -105,7 +106,7 @@ var buttonHandler = function(event) {
 
         if (elementId === questions[questionIndex].correctAnswer) {
             console.log("correct");
-            var correctAnswerAlert = document.createElement("h4");
+            var correctAnswerAlert = document.createElement("ul");
             correctAnswerAlert.className = "alert";
             correctAnswerAlert.textContent = "Correct Answer!";
             alertContainer.appendChild(correctAnswerAlert);
@@ -115,10 +116,12 @@ var buttonHandler = function(event) {
             startQuestions();
         } else {
             console.log("incorrect");
-            var incorrectAlert = document.createElement("h4");
+            var incorrectAlert = document.createElement("ul");
             incorrectAlert.className = "alert";
             incorrectAlert.textContent = "Incorrect Answer";
             alertContainer.appendChild(incorrectAlert);
+            timeLimit = timeLimit - penalty;
+            // createDiv.textContent = "Incorrect Answer:" + quesitons[questionIndex].correctAnswer;
             questionIndex++;
             startQuestions();
         }
@@ -128,11 +131,21 @@ var buttonHandler = function(event) {
 var endGame = function() {
     clearInterval(timeLimit);
 
+    if (questionIndex >= questions.length) {
+        containerEl.textContent = "End of Quiz!"
+    } else {
+        render(questionIndex);
+    }
+
+
+
+
+
     // var endGameAlert = document.createAttribute("h4");
     //     endGameAlert.className = "end-alert";
     //     endGameAlert.textContent = "Game Over!";
     //     containerEl.appendChild(endGameAlert);
-}
+};
 
         // createDiv.setAttribute("taskId", "createDiv");
 
