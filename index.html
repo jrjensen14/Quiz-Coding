@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Quiz</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header>
+        <p id="timer">Time:</p>
+        <!-- <p id="score">Score:0</p> -->
+        <p>Correct Answers: <span id="correctScore">0</span></p>
+    </header>
+    
+    <div id="container">
+        <div id="quiz-container">
+            <h1 class="welcome">Coding Quiz Challenge</h1>
+            <h4 id="main">Try to answer the following code-related questions with in the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds.</h4>
+            <button class="btn" id="start-quiz">Start Quiz</button>  
+            <div class="question-list" id="question-list-title"></div>
+        </div>
+    </div>
+
+    <div id="alert-container"></div>
+
+    <script src="./js/script.js"></script>
+</body>

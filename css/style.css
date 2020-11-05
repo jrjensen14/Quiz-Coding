@@ -1,0 +1,51 @@
+
+
+#timer {
+    float: left;
+}
+#score {
+    float: right;
+}
+#correctScore {
+    float: inherit;
+}
+header {
+    text-align: center;
+    display: block;
+    display: inline-block;
+    margin: 10px,10px,10px,10px;
+    border: 1px solid black;
+    width: 98vw;
+}
+.quiz-container {
+    display: inline;
+    border: black, 1px;
+}
+#container {
+    text-align: center;
+    width: 98vw;
+    height: 30vw;
+    display: block;
+    display: inline-block;
+    border: black 1px solid;
+    margin: 10px,10px,10px,10px;
+}
+button {
+    background-color: purple;
+    color: white;
+    border-radius: 8px;
+    padding: 10px,16px,10px,16px;
+}
+button:hover {
+    transition-duration: 0.4s;
+    background-color: rgb(157, 114, 157);
+}
+ul {
+    color: grey;
+}
+
+
+.h3 {
+    
+}
+
